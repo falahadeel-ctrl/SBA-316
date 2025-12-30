@@ -1,36 +1,46 @@
 let fragment = document.createDocumentFragment();
-let new1= document.createElement(legend);
-let new2= document.createElement(ol);
-let new3= document.createElement(li);
+let newlegend = document.createElement('legend');
+let neww= document.createElement('ol');
 
 //creating legend
-new1.textcontent="Fusce ut ex luctus, tempor justo non, maximus diam?";
+newlegend.textContent="Fusce ut ex luctus, tempor justo non, maximus diam?";
 
 //creating options
 let a=["Pellentesque at ante at elit","scelerisque elementum","Aenean augue lorem,","acilisis ac nibh id"]
 for(let i=0; i<a.length; i++){
-    new3[i].textcontent=a[i];
-    new2.prepend(new3[i]);
+
+    let list =document.createElement('li');
+    let input =document.createElement("input");
+    input.setAttribute("type","radio");
+    input.setAttribute("name","form2");
+    list.textContent =a[i];
+    neww.prepend(list);
+    list.prepend(input);
+
 }
-new2.setAttribute("type","A");
+neww.setAttribute("type","A");
 let score=0;
-
-
+fragment.appendChild(newlegend);
+fragment.appendChild(neww);
 //working on making a,b,c,d
-new2.addEventListener("click",function (event){
-    event.preventdefault;
-    if(ol.event.target==="D"){
+neww.addEventListener("click",function (event){
+    event.preventDefault();
+    if(event.target.value==="d"){
         score++;
     }else{
         return;
     }
 })
+//second event listener(Change color,Show feedback,Use parent/child navigation,Disable radio buttons,Check answer)
+neww.addEventListener("change", function (event){
+event.preventDefault();
 
+})
 //total scoreing
 if(score==3){
-windows.alert("You Won!!!");}
+window.alert("You Won!!!");}
 else{
-windows.alert("you were close try again");
+window.alert("you were close try again");
 }
 
 let grab=document.getElementById("qwe");
