@@ -1,6 +1,7 @@
 let fragment = document.createDocumentFragment();
 let newlegend = document.createElement('legend');
 let neww= document.createElement('ol');
+let form =document.getElementsByTagName('form')[0];
 
 //creating legend
 newlegend.textContent="Fusce ut ex luctus, tempor justo non, maximus diam?";
@@ -13,13 +14,13 @@ for(let i=0; i<a.length; i++){
     let input =document.createElement("input");
     input.setAttribute("type","radio");
     input.setAttribute("name","form2");
+    input.setAttribute("value","a");
     list.textContent =a[i];
     neww.prepend(list);
     list.prepend(input);
 
 }
 neww.setAttribute("type","A");
-let score=0;
 
 let container = document.querySelector('div');
 container.textContent="Answer both questions and click Submit";
@@ -41,35 +42,37 @@ neww.addEventListener("click",function (event){
 //second event listener(Change color,Show feedback,Use parent/child navigation,Disable radio buttons,Check answer)
 neww.addEventListener("change", function (event){
 event.preventDefault();
-let li = event.target.pareentNode;
+let li = event.target.parentNode;
 if(event.target.value === "d"){
   li.style.color='green';
 }else{
   li.style.color='red';
 }
-if(event.target.tagname.textContent='submit'){
-    let buttons = document.querySelectorAll('input');
-    buttons.disabled=true;
+// if(event.target.tagname.textContent='submit'){
+//     let buttons = document.querySelectorAll('input');
+//     buttons.disabled=true;
+// }
 }
 
-document.addEventListener('click',function (event){
+form.addEventListener('click',function (event){
     event.preventDefault();
-  if(event.target.id='submitbutton' && score==0)
+    let score=0;
+  if(event.target.id='submitbutton' && score===0)
         {
         container.textContent="You got 0/2 correct. Try again!";
         container.style.color='red';
-        windows.alert('try again!');
+        window.alert('try again!');
     }
-    else if(event.target.id='submitbutton' && score==1)
+    else if(event.target.id='submitbutton' && score===1)
         {
         container.textContent="You got 1/2 correct. Try again!";
         container.style.color='red';
-        windows.alert('almost there');
+        window.alert('almost there');
     }else
         {
         container.textContent="You got 2/2 correct! You Won! ✓";
         container.style.color='green';
-        windows.alert('you won!!');
+        window.alert('you won!!');
     }
 
     let radio = document.querySelectorAll('input[type="radio"]');
@@ -77,16 +80,10 @@ document.addEventListener('click',function (event){
       radio[i].disabled='true';
     }
 
-    let submit = getElementById('submitbutton');
+    let submit = document.getElementById('submitbutton');
     submit.disabled='true';
 })
 
-
-
-
-
-
-})
 //total scoreing
 // if(score==2){
 // window.alert("You Won!!!");}
