@@ -23,8 +23,7 @@ let score=0;
 
 let container = document.querySelector('div');
 container.textContent="Answer both questions and click Submit";
-container.textContent="You got 2/2 correct! You Won! ✓";
-container.textContent="You got 1/2 correct. Try again!";
+
 
 fragment.appendChild(newlegend);
 fragment.appendChild(neww);
@@ -36,7 +35,9 @@ neww.addEventListener("click",function (event){
     }else{
         return;
     }
-})
+
+});
+
 //second event listener(Change color,Show feedback,Use parent/child navigation,Disable radio buttons,Check answer)
 neww.addEventListener("change", function (event){
 event.preventDefault();
@@ -51,6 +52,34 @@ if(event.target.tagname.textContent='submit'){
     buttons.disabled=true;
 }
 
+document.addEventListener('click',function (event){
+    event.preventDefault();
+  if(event.target.id='submitbutton' && score==0)
+        {
+        container.textContent="You got 0/2 correct. Try again!";
+        container.style.color='red';
+        windows.alert('try again!');
+    }
+    else if(event.target.id='submitbutton' && score==1)
+        {
+        container.textContent="You got 1/2 correct. Try again!";
+        container.style.color='red';
+        windows.alert('almost there');
+    }else
+        {
+        container.textContent="You got 2/2 correct! You Won! ✓";
+        container.style.color='green';
+        windows.alert('you won!!');
+    }
+
+    let radio = document.querySelectorAll('input[type="radio"]');
+    for(i=0;i<radio.length;i++){
+      radio[i].disabled='true';
+    }
+
+    let submit = getElementById('submitbutton');
+    submit.disabled='true';
+})
 
 
 
@@ -59,11 +88,11 @@ if(event.target.tagname.textContent='submit'){
 
 })
 //total scoreing
-if(score==3){
-window.alert("You Won!!!");}
-else{
-window.alert("you were close try again");
-}
+// if(score==2){
+// window.alert("You Won!!!");}
+// else{
+// window.alert("you were close try again");
+// }
 
 let grab=document.getElementById("qwe");
 grab.prepend(fragment);
