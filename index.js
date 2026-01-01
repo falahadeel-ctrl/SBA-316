@@ -20,6 +20,12 @@ for(let i=0; i<a.length; i++){
 }
 neww.setAttribute("type","A");
 let score=0;
+
+let container = document.querySelector('div');
+container.textContent="Answer both questions and click Submit";
+container.textContent="You got 2/2 correct! You Won! ✓";
+container.textContent="You got 1/2 correct. Try again!";
+
 fragment.appendChild(newlegend);
 fragment.appendChild(neww);
 //working on making a,b,c,d
@@ -34,6 +40,22 @@ neww.addEventListener("click",function (event){
 //second event listener(Change color,Show feedback,Use parent/child navigation,Disable radio buttons,Check answer)
 neww.addEventListener("change", function (event){
 event.preventDefault();
+let li = event.target.pareentNode;
+if(event.target.value === "d"){
+  li.style.color='green';
+}else{
+  li.style.color='red';
+}
+if(event.target.tagname.textContent='submit'){
+    let buttons = document.querySelectorAll('input');
+    buttons.disabled=true;
+}
+
+
+
+
+
+
 
 })
 //total scoreing
