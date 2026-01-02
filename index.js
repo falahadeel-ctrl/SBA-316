@@ -19,7 +19,7 @@ for(let i=0; i<a.length; i++){
         input.setAttribute(`value`,options[i]);
     // }
     list.textContent =a[i];
-    neww.prepend(list);
+    neww.appendChild(list);
     list.prepend(input);
 
 }
@@ -58,8 +58,8 @@ fragment.appendChild(neww);
 //     buttons.disabled=true;
 // }
 // })
-
-form.addEventListener('click',function (event){
+let submit = document.getElementById('submitbutton');
+submit.addEventListener('click',function (event){
     event.preventDefault();
     let score=0;
 
@@ -100,7 +100,7 @@ form.addEventListener('click',function (event){
       radio[i].disabled=true;
     }
 
-    let submit = document.getElementById('submitbutton');
+    
     submit.disabled=true;
 })
 
@@ -112,4 +112,4 @@ form.addEventListener('click',function (event){
 // }
 
 let grab=document.getElementById("qwe");
-grab.prepend(fragment);
+grab.appendChild(fragment);
