@@ -4,7 +4,7 @@ let neww= document.createElement('ol');
 let form =document.getElementsByTagName('form')[0];
 
 //creating legend
-newlegend.textContent="Fusce ut ex luctus, tempor justo non, maximus diam?";
+newlegend.textContent="Q)Fusce ut ex luctus, tempor justo non, maximus diam?";
 
 //creating options
 let a=["Pellentesque at ante at elit","scelerisque elementum","Aenean augue lorem,","acilisis ac nibh id"]
@@ -59,6 +59,9 @@ fragment.appendChild(neww);
 // }
 // })
 let submit = document.getElementById('submitbutton');
+let grab=document.getElementById("qwe");
+grab.insertBefore(fragment, submit);
+
 submit.addEventListener('click',function (event){
     event.preventDefault();
     let score=0;
@@ -103,6 +106,19 @@ submit.addEventListener('click',function (event){
     
     submit.disabled=true;
 })
+form.addEventListener( 'mouseover',function (event){
+    // let ol = document.querySelectorAll('ol');
+    if(event.target.tagName==='LI'){
+        let ol = event.target.parentNode;
+    ol.style.backgroundColor='silver';
+    }
+} )
+form.addEventListener( 'mouseout',function (event){
+    if(event.target.tagName==='LI'){
+        let ol = event.target.parentNode;
+    ol.style.backgroundColor='';
+    }
+} )
 
 //total scoreing
 // if(score==2){
@@ -111,5 +127,5 @@ submit.addEventListener('click',function (event){
 // window.alert("you were close try again");
 // }
 
-let grab=document.getElementById("qwe");
-grab.appendChild(fragment);
+// let grab=document.getElementById("qwe");
+// grab.appendChild(fragment);
