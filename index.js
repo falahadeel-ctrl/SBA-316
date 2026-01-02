@@ -4,10 +4,10 @@ let neww= document.createElement('ol');
 let form =document.getElementsByTagName('form')[0];
 
 //creating legend
-newlegend.textContent="Q)Fusce ut ex luctus, tempor justo non, maximus diam?";
+newlegend.textContent="Question 1: How many legs does a dog have?";
 
 //creating options
-let a=["Pellentesque at ante at elit","scelerisque elementum","Aenean augue lorem,","acilisis ac nibh id"]
+let a=["eight","two","six","four"]
 let options = ['a','b','c','d']
 for(let i=0; i<a.length; i++){
 
@@ -111,8 +111,7 @@ form.addEventListener( 'mouseover',function (event){
     if(event.target.tagName==='LI'){
         let ol = event.target.parentNode;
     ol.style.backgroundColor='silver';
-    }
-} )
+} })
 form.addEventListener( 'mouseout',function (event){
     if(event.target.tagName==='LI'){
         let ol = event.target.parentNode;
